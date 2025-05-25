@@ -1,0 +1,975 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial,
+    sans-serif, "Archia Bold", "Archia Regular", "Metric Light";
+}
+
+@font-face {
+  font-family: "Archia Bold";
+  src: url("../Fonts/Archia_Font_Web/06.Archia-Bold-webfont/archia-bold-webfont.eot");
+  src: url("../Fonts/Archia_Font_Web/06.Archia-Bold-webfont/archia-bold-webfont.eot?#iefix")
+      format("embedded-opentype"),
+    url("../Fonts/Archia_Font_Web/06.Archia-Bold-webfont/archia-bold-webfont.woff")
+      format("woff"),
+    url("../Fonts/Archia_Font_Web/06.Archia-Bold-webfont/archia-bold-webfont.ttf")
+      format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Archia Regular";
+  src: url("../Fonts/Archia_Font_Web/03.Archia-Regular-webfont/archia-regular-webfont.eot");
+  src: url("../Fonts/Archia_Font_Web/03.Archia-Regular-webfont/archia-regular-webfont.eot?#iefix")
+      format("embedded-opentype"),
+    url("../Fonts/Archia_Font_Web/03.Archia-Regular-webfont/archia-regular-webfont.woff")
+      format("woff"),
+    url("../Fonts/Archia_Font_Web/03.Archia-Regular-webfont/archia-regular-webfont.ttf")
+      format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Archia Light";
+  src: url("../Fonts/Archia_Font_Web/02.Archia-Light-webfont/archia-light-webfont.eot");
+  src: url("../Fonts/Archia_Font_Web/02.Archia-Light-webfont/archia-light-webfont.eot?#iefix")
+      format("embedded-opentype"),
+    url("../Fonts/Archia_Font_Web/02.Archia-Light-webfont/archia-light-webfont.woff")
+      format("woff"),
+    url("../Fonts/Archia_Font_Web/02.Archia-Light-webfont/archia-light-webfont.ttf")
+      format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+@font-face {
+  font-family: "Metric Light";
+  src: url("../Fonts/Metric_font/Metric-Light.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: "Metric Light";
+
+  position: relative;
+  background-image: url("../img/FooterBG/79521629693dde3f1d06f4e891475322.png");
+  background-size: 100%;
+  background-position: center 91.65%;
+  background-repeat: no-repeat;
+  font-family: "Archia Bold", "Archia Regular", "Metric Light" , "Archia Light";
+}
+
+@media (max-width: 780px) {
+  body {
+    background-position: center 1px, center 91.65%;
+  }
+}
+
+.headerbg{
+  background-image: url("../img/HeaderBG/header-bg.png");
+  background-size: 100% 100%;
+  background-color: #ffffff;
+  background-repeat: no-repeat;
+}
+
+@media (max-width: 780px) {
+  .headerbg{
+    background-size: 100% 100%;
+    background-image: url("../img/HeaderBG/header-bg.png");
+    background-size: 100% 100%;
+    background-color: #ffffff00;
+    background-repeat: no-repeat;
+  }
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0; /* Start 50px down */
+  left: 0;
+  right: 0;
+  bottom: 0; /* Extend to the bottom */
+  background-color: #f1f2f8; /* Example: light white with some transparency */
+  z-index: -1; /* Ensure it stays behind other content */
+}
+
+@media (max-width: 780px){
+  body::before{
+    top: 0%;
+  }
+}
+
+
+body::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("../img/CenterBodyBg/midbg.png");
+  background-size: 100%;
+  background-position: center 18%;
+  background-repeat: no-repeat;
+  z-index: -1; /* Ensure it stays behind other content */
+  opacity: 5%;
+}
+
+/* Hover Effect Start */
+
+.hover-circle {
+  position: fixed;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  transition: width 0.3s, height 0.3s;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  mix-blend-mode: difference; /* This creates the negative effect */
+  background: #fff; /* White circle for inverse effect */
+}
+
+@media (max-width: 767px) {
+  .hover-circle {
+    display: none;
+  }
+}
+
+
+.portfolio-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+/* Hover Effect End */
+
+/* Header */
+
+.header {
+  padding: 20px 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  font-size: 20px;
+  font-family: "Metric Light";
+  max-width: 1600px;
+  width: 86%;
+}
+/* Update the media query breakpoint and maintain consistent spacing */
+@media (max-width: 1280px) {
+  .header {
+    width: 86%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 2.8%;
+    padding-bottom: 2.8%;
+    font-size: 18px;
+  }
+}
+
+/* Header Tablet */
+@media (max-width: 1280px) {
+  .header {
+    padding: 20px 0;
+    width: 86%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    font-size: 15px;
+  }
+}
+
+/* Header Mobile */
+
+@media (max-width: 767px) {
+  .header {
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 0.1%;
+    margin-right: 0.1%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    font-size: 15px;
+  }
+}
+
+.logo {
+  font-size: 20px;
+  color: #3C096C;
+  text-decoration: none;
+  font-family: "Archia Bold";
+  font-weight: 700;
+}
+
+@media (max-width: 1280px) {
+  .logo {
+    font-size: 15px;
+    
+    text-decoration: none;
+  }
+}
+@media (max-width: 767px) {
+  .logo {
+    font-size: 15px;
+    
+    text-decoration: none;
+  }
+}
+
+.logo:hover{
+  color: #000000;
+}
+
+.nav {
+  display: flex;
+  gap: 40px;
+  font-family: "Archia Regular";
+  font-size: 20px;
+  color: #1F2937;
+  font-weight: 400;
+}
+
+@media (max-width: 1280px) {
+  .nav {
+    display: flex;
+    gap: 20px;
+    font-family: "Archia Regular";
+    font-size: 15px;
+    color: #1F2937;
+    font-weight: 400;
+  }
+}
+
+@media (max-width: 767px) {
+  .nav {
+    display: flex;
+    gap: 20px;
+    font-family: "Archia Regular";
+    font-size: 15px;
+    color: #1F2937;
+    font-weight: 400;
+  }
+}
+
+.nav a {
+  text-decoration: none;
+  color: #333;
+  font-family: "Archia Regular";
+  color: #1F2937;
+  font-weight: 400;
+}
+
+.nav a:hover{
+  color: #3C096C;
+  font-weight: 400;
+}
+
+.portfolio-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  max-width: 1600px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 86%;
+  padding-bottom: 40px;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  width: 100%;
+}
+
+.portfolio-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.portfolio-additional {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  width: 100%;
+  max-width: 1600px;
+  
+}
+
+.portfolio-item {
+  position: relative;
+  overflow: hidden;
+  background: #f5f5f5;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.portfolio-item.tall {
+  aspect-ratio: 780/1040;
+}
+
+.portfolio-item.standard {
+  aspect-ratio: 16/9;
+  max-width: 1080px;
+  max-height: 720px;
+}
+
+.portfolio-item video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.portfolio-item:hover video {
+  transform: scale(1.02);
+}
+
+.footer {
+  display: none; /* Hide by default on desktop and tablet */
+}
+
+/* Only show on mobile */
+@media (max-width: 767px) {
+  .footer {
+    padding: 60px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: black;
+    color: white;
+    margin-top: auto;
+    padding-left: 8%;
+    padding-right: 8%;
+  }
+}
+
+
+.copyright {
+  font-family: "Archia Light";
+  font-weight: 400;
+  font-size: 14px;
+}
+
+@media (max-width: 1280px) {
+  .copyright {
+    margin-right: 0.1%;
+    font-size: 12px;
+    font-family: "Archia Regular";
+    font-weight: 400;
+  }
+}
+
+@media (max-width: 780px) {
+  .copyright {
+    margin-right: 0.1%;
+    font-size: 10px;
+    font-family: "Archia Light";
+    font-weight: 400;
+  }
+}
+
+.social {
+  display: flex;
+  gap: 20px;
+  font-family: "Archia Light";
+  font-weight: 400;
+}
+
+@media (max-width: 1280px) {
+  .social {
+    margin-left: 0.1%;
+    font-size: 12px;
+    font-family: "Archia Light";
+    font-weight: 400;
+  }
+}
+
+@media (max-width: 767px) {
+  .social {
+    margin-left: 0.1%;
+    font-size: 10px;
+    font-family: "Archia Light";
+    font-weight: 400;
+    gap: 10px;
+  }
+}
+
+.social a {
+  color: white;
+  text-decoration: none;
+  font-family: "Archia Light";
+  font-weight: 400;
+  font-size: 14px;
+}
+
+@media (max-width: 1280px) {
+  .social a {
+    color: white;
+    text-decoration: none;
+    font-family: "Archia Light";
+    font-weight: 400;
+    font-size: 10px;
+  }
+}
+
+/* Tablet adjustments */
+@media (max-width: 1280px) {
+  body {
+    padding: 0 10px;
+  }
+
+  .portfolio-container,
+  .portfolio-grid,
+  .portfolio-section {
+    gap: 10px;
+  }
+
+  .portfolio-additional {
+    row-gap: 10px;
+    column-gap: 20px;
+  }
+
+  .header {
+    padding: 15px 0;
+  }
+
+  .header,
+  .portfolio-container {
+    width: 86%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 780px) {
+  .portfolio-container,
+  .portfolio-grid,
+  .portfolio-section,
+  .portfolio-additional {
+    gap: 10px;
+  }
+
+  .footer {
+    margin-left: -10px;
+    margin-right: -10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-top: 0px;
+  }
+
+  .header{
+    width: 100%;
+    margin-left: 0.1%;
+    margin-right: 0.1%;
+    margin-bottom: -5px;
+  }
+
+  .portfolio-container {
+    width: 100%;
+    margin-left: 0.1%;
+    margin-right: 0.1%;
+    margin-bottom: -5px;
+  }
+
+  .portfolio-container {
+    width: 100%;
+    margin-left: 0.1%;
+    margin-right: 0.1%;
+    padding-bottom: 0px;
+
+  }
+
+  .portfolio-additional {
+    margin-bottom: 1px;
+  }
+
+}
+
+/* Common styles */
+.about-section {
+  margin-bottom: 4rem;
+  position: relative;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.profile-content p {
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.get-in-touch {
+  display: inline-block;
+  text-decoration: none;
+  color: #333;
+  margin-top: 1rem;
+  font-family: "Metric Light";
+}
+
+.services-list {
+  list-style: none;
+  padding: 0;
+  font-family: "Metric Light";
+}
+
+.services-list li {
+  margin-bottom: 0.8rem;
+  font-size: 1.1rem;
+  font-family: "Metric Light";
+}
+
+/* Desktop Layout (above 768px) */
+@media (max-width: 768px) {
+  .about-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* Creates two equal columns */
+    gap: 5px;
+    /* Added 5px gap */
+    font-family: "Metric Light";
+  }
+
+  .section-title {
+    position: absolute;
+    left: 0;
+    font-family: "Metric Light";
+  }
+
+  .profile-content,
+  .services-list {
+    grid-column: 2;
+    /* Places content in the second column */
+    max-width: 100%;
+    padding-left: 5px;
+    /* Added 5px padding to content */
+    font-family: "Metric Light";
+  }
+}
+
+/* Mobile Layout (below 768px) */
+@media (max-width: 767px) {
+  .section-title {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+    font-family: "Metric Light";
+  }
+
+  .profile-content p {
+    margin-bottom: 1rem;
+    font-family: "Metric Light";
+  }
+
+  .services-list li {
+    font-size: 1rem;
+    font-family: "Metric Light";
+  }
+}
+
+.about-sections {
+  margin: 40px 0;
+}
+
+.about-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 60px;
+  align-items: top;
+}
+
+.about-text {
+  padding: 20px;
+  font-family: "Metric Light";
+}
+
+.about-text h2 {
+  margin-bottom: 20px;
+  font-size: 2rem;
+  font-family: "Metric Light";
+}
+
+.about-text p {
+  line-height: 1.6;
+  font-family: "Metric Light";
+}
+
+.about-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+/* Mobile adjustment */
+@media (max-width: 767px) {
+  .about-section {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* Video section styles */
+.video-section {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.video-container {
+  grid-column: 1 / span 2;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0px;
+  margin-top: 10px;
+  border-radius: 8px;
+}
+
+@media (min-width: 1280px) {
+  .video-container {
+    grid-column: 1 / span 2;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+  }
+}
+
+.video-section {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.video-container video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Mobile adjustment for video section */
+@media (max-width: 767px) {
+  .video-section .video-container {
+    grid-column: 1;
+    margin-top: 20px;
+  }
+}
+
+.heading-p {
+  padding: 10px 0;
+  /* Desktop padding */
+  font-size: 1.4rem;
+  /* Reduced from 2.5rem */
+  line-height: 1.3;
+  max-width: 850px;
+  padding-top: 5%;
+  font-size: 1.7rem;
+  font-weight: 250;
+  font-family: "Metric Light";
+}
+
+/* Tablet adjustments */
+@media (max-width: 1280px) {
+  .heading-p {
+    padding: 10px 0;
+    font-size: 1.2rem;
+    font-weight: 250;
+    font-family: "Metric Light";
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 767px) {
+  .heading-p {
+    padding: 5px 0;
+    /* Mobile padding */
+    font-size: 20px;
+    /* Reduced from 1.5rem */
+    font-size: 1.2rem;
+    font-weight: 250;
+    font-family: "Metric Light";
+  }
+}
+.heading-p1 {
+  padding: 10px 0;
+  font-size: 1.7rem;
+  line-height: 1.3;
+  max-width: 850px;
+  padding-top: 0.5%;
+  font-weight: 250;
+  font-family: "Metric Light";
+}
+
+/* Tablet adjustments */
+@media (max-width: 1280px) {
+  .heading-p1 {
+    padding: 10px 0;
+    font-size: 1.2rem;
+    font-weight: 250;
+    font-family: "Metric Light";
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 767px) {
+  .heading-p1 {
+    padding: 5px 0;
+    /* Mobile padding */
+    font-size: 1.2rem;
+    /* Reduced from 1.5rem */
+    font-weight: 250;
+    font-family: "Metric Light";
+  }
+}
+
+.grey-box {
+  width: 100%;
+  height: 100%;
+  background-color: #1f2937;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio */
+  overflow: hidden;
+}
+
+/* Ensure container maintains proper positioning */
+.video-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.grey-box {
+  width: 100%;
+  height: 100%;
+  background-color: #1f2937;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.portfolio-item a {
+  text-decoration: none;
+}
+
+.portfolio-tittle {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  padding: 15px 15px;
+  background-color: #FFFFFF99;
+  text-align: left;
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 1;
+  font-family: "Archia Bold";
+  font-weight: 700;
+  color: #000000;
+}
+
+.portfolio-item:hover .portfolio-tittle {
+  opacity: 1; /* Show on hover */
+}
+
+@media (max-width: 1280px) {
+  .portfolio-tittle {
+    display: none;
+  }
+}
+
+
+.footer-wrapper {
+  background-color: black;
+  width: 100%;
+  margin: 0;
+  padding: 60px 0;
+}
+
+@media (max-width: 780px) {
+  .footer-wrapper {
+    display: none;
+  }
+}
+
+.footer-ab {
+  width: 86%;
+  max-width: 1600px;
+  margin: 0 auto;
+  color: white;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.social-links {
+  display: flex;
+  gap: 20px;
+}
+
+.social-links a {
+  color: white;
+  text-decoration: none;
+  font-family: "Archia Light";
+  font-size: 14px;
+}
+
+.social-links a:hover {
+  opacity: 0.8;
+}
+
+.copyright-ab {
+  font-family: "Archia Light";
+  font-size: 14px;
+}
+
+.scroll-container {
+  width: 100%;
+  overflow: hidden;
+  padding-bottom: 0px;
+}
+
+@media (max-width: 768px) {
+  .scroll-container {
+    padding-bottom: 0px;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    position: relative;
+    margin-top: auto;
+  }
+}
+
+
+/* Scrolling text */
+
+.scrolling-text {
+  display: flex;
+  white-space: nowrap;
+  font-family: "Archia Bold";
+  font-weight: 500;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .scrolling-text {
+    font-family: "Archia Bold";
+    font-weight: 500;
+    font-size: 15px;
+    text-transform: uppercase;
+  }
+}
+
+
+.scroll-left {
+  animation: scrollLeft 30s linear infinite;
+}
+
+.scroll-right {
+  animation: scrollRight 30s linear infinite;
+}
+
+@media (max-width: 768px) {
+  .scroll-left {
+    animation: scrollLeft 8s linear infinite;
+  }
+
+  .scroll-right {
+    animation: scrollRight 8s linear infinite;
+  }
+}
+
+.text-content {
+  padding-right: 5px; /* Ensure no gap between repetitions */
+}
+
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes scrollRight {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.ticker-row {
+  padding: 12px 0;
+}
+
+.ticker-row.white-bg {
+  background-color: transparent;
+  color: #3C096C;
+}
+
+.ticker-row.blue-bg {
+  background-color: #3C096C;
+  color: white;
+}
+
+.tricker-dot{
+  position: relative; 
+  top: -1px;
+}
+
+@media (max-width: 768px) {
+  .tricker-dot{
+    position: relative; 
+    top: 1.5px;
+  }
+}
