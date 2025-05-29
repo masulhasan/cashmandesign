@@ -16,8 +16,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     hoverElements.forEach(item => {
         item.addEventListener('mouseenter', function() {
-            circle.style.width = '150px';
-            circle.style.height = '150px';
+            circle.style.width = '105px';
+            circle.style.height = '105px';
         });
 
         item.addEventListener('mouseleave', function() {
