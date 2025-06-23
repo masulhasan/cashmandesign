@@ -9,8 +9,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     videoItems.forEach(item => {
         item.addEventListener('mouseenter', function() {
-            circle.style.width = '105px';
-            circle.style.height = '105px';
+            circle.style.width = '70px';
+            circle.style.height = '70px';
         });
 
         item.addEventListener('mouseleave', function() {
