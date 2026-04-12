@@ -1,0 +1,112 @@
+/* ============================================
+   NAVBAR STYLES — Bobby Cashman
+   ============================================ */
+
+/* Header background */
+.headerbg {
+  background-image: url("../img/HeaderBG/header-bg.png");
+}
+
+/* Header layout */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  font-size: 20px;
+  font-family: "Metric Light";
+  max-width: 1600px;
+  width: 86%;
+}
+
+/* Tablet (≤1280px) */
+@media (max-width: 1280px) {
+  .header {
+    width: 86%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    font-size: 15px;
+  }
+}
+
+/* Mobile (≤767px) */
+@media (max-width: 767px) {
+  .header {
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 0.1%;
+    margin-right: 0.1%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    font-size: 15px;
+  }
+}
+
+/* ---- Logo ---- */
+.logo {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 0;
+}
+
+.logo-img {
+  height: 64px;
+  width: auto;
+  display: block;
+  transition: none;
+}
+
+/* Mobile logo */
+@media (max-width: 767px) {
+  .logo {
+    padding: 45px 0;
+  }
+
+  .logo-img {
+    height: 45px;
+  }
+}
+
+/* ---- Nav links ---- */
+.nav {
+  display: flex;
+  gap: 40px;
+  font-family: "Archia Regular";
+  font-size: 20px;
+  color: #1f2937;
+  font-weight: 400;
+}
+
+@media (max-width: 1280px) {
+  .nav {
+    gap: 20px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 767px) {
+  .nav {
+    gap: 20px;
+    font-size: 15px;
+  }
+}
+
+.nav a {
+  text-decoration: none;
+  color: #1f2937;
+  font-family: "Archia Regular";
+  font-weight: 400;
+}
+
+.nav a:hover {
+  color: #3c096c;
+  font-weight: 400;
+}
