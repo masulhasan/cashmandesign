@@ -67,7 +67,8 @@ body {
   background-size: 100%;
   background-position: center 91.65%;
   background-repeat: no-repeat;
-  font-family: "Archia Light", "Archia Regular", "Archia Bold", "Metric Light", sans-serif;
+  font-family:
+    "Archia Light", "Archia Regular", "Archia Bold", "Metric Light", sans-serif;
 }
 
 @media (max-width: 780px) {
@@ -283,6 +284,7 @@ body::after {
   margin-left: auto;
   margin-right: auto;
   width: 86%;
+  flex: 1;
 }
 
 .portfolio-grid {

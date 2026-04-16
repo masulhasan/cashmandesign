@@ -328,6 +328,7 @@ body::after {
   margin-right: auto;
   width: 86%;
   padding-bottom: 40px;
+  flex: 1;
 }
 
 .portfolio-grid {
